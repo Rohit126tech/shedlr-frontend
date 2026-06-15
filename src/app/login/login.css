@@ -1,0 +1,263 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+/* ===================================
+   MAIN WRAPPER
+=================================== */
+
+.login-wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(0, 100, 62, 0.08),
+      transparent 30%),
+    radial-gradient(circle at bottom right,
+      rgba(0, 100, 62, 0.08),
+      transparent 35%),
+    #eef7f2;
+}
+
+/* ===================================
+   CARD
+=================================== */
+
+.login-card {
+  width: min(900px, 90vw);
+  height: min(98vh, 760px);
+
+  display: flex;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+  animation: cardEntrance .6s ease;
+}
+
+/* ===================================
+   LEFT PANEL
+=================================== */
+
+.left-panel {
+  flex: 1;
+
+  background: linear-gradient(
+    180deg,
+    #e4f5eb 0%,
+    #e2f3e9 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+}
+
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-container img {
+  width: min(100%, 360px);
+  max-height: 40vh;
+
+  object-fit: contain;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.content {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.content h2 {
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.content p {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #667085;
+
+  max-width: 380px;
+  margin: auto;
+}
+
+/* ===================================
+   RIGHT PANEL
+=================================== */
+
+.right-panel {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 2.5rem 3.5rem;
+
+  background: white;
+}
+
+.logo-section {
+  text-align: center;
+}
+
+.logo-section img {
+  width: 55%;
+  height: auto;
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-row {
+  display: flex;
+  align-items: center;
+
+  margin: 1rem 0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+  margin: 0.25rem 0;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.divider p {
+  color: #98a2b3;
+  font-size: .8rem;
+}
+
+.signup-link {
+  margin-top: 1rem;
+
+  text-align: center;
+
+  color: #667085;
+  font-size: .9rem;
+}
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 1.5rem;
+}
+
+.slider-dots span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #cad5ce;
+}
+
+.slider-dots .active {
+  width: 26px;
+  border-radius: 20px;
+  background: #00643e;
+}
+.google-btn:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.google-btn img {
+  width: 20px;
+}
+
+/* ===================================
+   ANIMATIONS
+=================================== */
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 992px) {
+
+  .login-card {
+    width: 100%;
+    height: auto;
+    max-height: 95vh;
+  }
+
+  .left-panel {
+    display: none;
+  }
+
+  .right-panel {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .right-panel {
+    padding: 1.5rem;
+  }
+}
