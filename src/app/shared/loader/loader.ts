@@ -1,24 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoaderService } from '../../core/services/loader-service';
 
 @Component({
   selector: 'app-loader',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './loader.html',
   styleUrl: './loader.css',
 })
-@Injectable({
-  providedIn: 'root',
-})
-export class Loader {
- isLoading = false;
+export class LoaderComponent {
 
-  constructor(private loaderService:LoaderService) {}
+  constructor(public loaderService: LoaderService) {}
 
-  ngOnInit() {
-    this.loaderService.isLoading.subscribe(value => {
-      this.isLoading = value;
-    });
-  }
 }

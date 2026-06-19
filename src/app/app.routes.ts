@@ -1,10 +1,17 @@
 import { Routes } from '@angular/router';
-import { Login } from './login/login';
-import { Signup } from './signup/signup';
-import { Dashboard } from './dashboard/dashboard';
+
 
 export const routes: Routes = [
-    {path:'', component:Login},
-    {path:'signup',component:Signup},
-    {path:'dashboard',component:Dashboard}
+    {
+    path: '',
+    loadChildren: () =>
+      import('./features/auth/auth.routes',)
+      .then(r => r.AUTH_ROUTES)
+  },
+  {
+    path:'dashboard',
+    loadComponent:()=>
+      import('./features/dashboard/dashboard')
+    .then(r => r.Dashboard)
+  }
 ];

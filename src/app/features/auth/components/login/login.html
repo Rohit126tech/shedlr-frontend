@@ -38,19 +38,19 @@
   <div class="app-form-group">
 
     <label class="app-label">
-      Username or Email
+      Email
     </label>
 
     <input
       type="text"
       class="app-input"
-      placeholder="Enter username or email"
-      formControlName="username"
+      placeholder="Enter email Id"
+      formControlName="email"
     />
 
-    @if(f['username'].touched && f['username'].errors?.['required']) {
+    @if(f['email'].touched && f['email'].errors?.['required']) {
       <small class="app-error">
-        Username is required
+        Email is required
       </small>
     }
 
@@ -65,7 +65,7 @@
         Password
       </label>
 
-      <a href="#" class="app-link">
+      <a href="#" class="app-link" routerLink="/forgot-password">
         Forgot Password?
       </a>
 
@@ -74,7 +74,7 @@
     <div class="app-password-wrapper">
 
       <input
-        [type]="hidePassword ? 'password' : 'text'"
+        [type]="hidePassword() ? 'password' : 'text'"
         class="app-input"
         placeholder="Enter password"
         formControlName="password"
@@ -87,8 +87,8 @@
 
         <i
           class="fa-solid"
-          [class.fa-eye]="hidePassword"
-          [class.fa-eye-slash]="!hidePassword">
+          [class.fa-eye]="hidePassword()"
+          [class.fa-eye-slash]="!hidePassword()">
         </i>
 
       </button>
@@ -105,7 +105,7 @@
 
   <div class="remember-row">
     <label class="remember-me">
-      <input type="checkbox">
+      <input type="checkbox" formControlName="rememberMe">
       <span>Remember Me</span>
     </label>
   </div>
@@ -137,7 +137,7 @@
 
   <div class="signup-link">
     Are you new?
-    <a routerLink="signup" class="app-link">
+    <a routerLink="/register" class="app-link">
       Create an Account
     </a>
   </div>

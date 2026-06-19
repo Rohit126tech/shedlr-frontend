@@ -19,13 +19,8 @@
   padding: 1rem;
 
   background:
-    radial-gradient(circle at top left,
-      rgba(0, 100, 62, 0.08),
-      transparent 30%),
-    radial-gradient(circle at bottom right,
-      rgba(0, 100, 62, 0.08),
-      transparent 35%),
-    #eef7f2;
+    
+    #ecfeff;
 }
 
 /* ===================================
@@ -61,11 +56,7 @@
 .left-panel {
   flex: 1;
 
-  background: linear-gradient(
-    180deg,
-    #e4f5eb 0%,
-    #e2f3e9 100%
-  );
+  background: #e0fdfd;
 
   display: flex;
   flex-direction: column;
@@ -218,25 +209,6 @@
 /* ===================================
    ANIMATIONS
 =================================== */
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes cardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 @media (max-width: 992px) {
 

@@ -1,0 +1,153 @@
+<div class="signup-wrapper">
+  <div class="illustration-container">
+    <img src="/assets/images/signup.gif" type="video/mp4" />
+
+    <div class="content">
+      <h2>Welcome to Shedlr</h2>
+
+      <p>
+        Streamline projects, collaborate effortlessly, and keep every task on track—all in one
+        powerful workspace.
+      </p>
+    </div>
+  </div>
+  <div class="signup-card">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+      <div class="logo-section">
+        <img src="/assets/images/logoWhite.png" alt="Login Illustration" />
+      </div>
+
+      <div class="app-form-group">
+        <label class="app-label"> Full Name </label>
+
+        <input
+          type="text"
+          class="app-input"
+          placeholder="Enter your full name"
+          formControlName="fullName"
+        />
+
+        @if (f['fullName'].touched) {
+          @if (f['fullName'].errors?.['required']) {
+            <small class="app-error"> Full name is required </small>
+          }
+        }
+      </div>
+
+      <!-- Email -->
+
+      <div class="app-form-group">
+        <label class="app-label"> Email Address </label>
+
+        <input
+          type="email"
+          class="app-input"
+          placeholder="Enter your email address"
+          formControlName="email"
+        />
+
+        @if (f['email'].touched) {
+          @if (f['email'].errors?.['required']) {
+            <small class="app-error"> Email is required </small>
+          }
+
+          @if (f['email'].errors?.['email']) {
+            <small class="app-error"> Please enter a valid email address </small>
+          }
+        }
+      </div>
+
+      <!-- Password -->
+
+      <div class="app-form-group">
+        <label class="app-label"> Password </label>
+
+        <div class="app-password-wrapper">
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            class="app-input"
+            placeholder="Create a password"
+            formControlName="password"
+          />
+
+          <button type="button" class="app-password-toggle" (click)="togglePassword()">
+            <i class="fa-solid" [class.fa-eye]="hidePassword" [class.fa-eye-slash]="!hidePassword">
+            </i>
+          </button>
+        </div>
+
+        @if (f['password'].touched) {
+          @if (f['password'].errors?.['required']) {
+            <small class="app-error"> Password is required </small>
+          }
+
+          @if (f['password'].errors?.['minlength']) {
+            <small class="app-error"> Password must be at least 8 characters </small>
+          }
+        }
+      </div>
+
+      <!-- Confirm Password -->
+
+      <div class="app-form-group">
+        <label class="app-label"> Confirm Password </label>
+
+        <div class="app-password-wrapper">
+          <input
+            [type]="hideConfirmPassword ? 'password' : 'text'"
+            class="app-input"
+            placeholder="Confirm your password"
+            formControlName="confirmPassword"
+          />
+
+          <button type="button" class="app-password-toggle" (click)="toggleConfirmPassword()">
+            <i
+              class="fa-solid"
+              [class.fa-eye]="hideConfirmPassword"
+              [class.fa-eye-slash]="!hideConfirmPassword"
+            >
+            </i>
+          </button>
+        </div>
+
+        @if (f['confirmPassword'].touched) {
+          @if (f['confirmPassword'].errors?.['required']) {
+            <small class="app-error"> Confirm password is required </small>
+          }
+
+          @if (signupForm.errors?.['passwordMismatch']) {
+            <small class="app-error"> Password and Confirm Password should be same </small>
+          }
+        }
+      </div>
+
+      <!-- Terms -->
+
+      <div class="terms-row">
+        <label class="terms-check">
+          <input type="checkbox" formControlName="acceptTerms" />
+
+          <span>
+            I agree to the
+            <a href="#" class="app-link"> Terms & Conditions </a>
+          </span>
+        </label>
+        @if (submitted && signupForm.get('acceptTerms')?.invalid) {
+          <div class="checkbox-popup">Please accept the Terms & Conditions to continue.</div>
+        }
+      </div>
+
+      <!-- Signup Button -->
+
+      <button type="submit" class="app-btn-primary">Create Account</button>
+
+      <!-- Login Link -->
+
+      <div class="bottom-link">
+        Already have an account?
+
+        <a routerLink="/" class="app-link"> Sign In </a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,14 +1,21 @@
-@if(isLoading)
-{
-<div class="loader-overlay">
-  <div class="loader">
-    <div class="orbit">
-      <div class="ball pink"></div>
-      <div class="ball blue"></div>
-      <div class="ball yellow"></div>
-    </div>
+@if (loaderService.isLoading$ | async) {
 
-    <div class="core"></div>
+<div class="loader-overlay">
+
+  <div class="loader">
+
+    <div class="ball ball-1"></div>
+
+    <div class="ball ball-2"></div>
+
+    <div class="ball ball-3"></div>
+
+    <div class="ball ball-4"></div>
+
+    <div class="ball ball-5"></div>
+
   </div>
+
 </div>
+
 }
