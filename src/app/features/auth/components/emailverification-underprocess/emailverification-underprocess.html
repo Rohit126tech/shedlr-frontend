@@ -1,0 +1,41 @@
+<div class="verification-page">
+
+  <div class="verification-icon">
+    <div class="illustration-container">
+        <img src="/assets/images/emailsent.png" alt="" />
+      </div>
+  </div>
+
+  <h1>Please Verify Your Email</h1>
+
+  <p class="verification-description">
+    We've sent a verification link to your email address.
+    Please check your inbox and click the link to activate your account.
+  </p>
+
+  <p class="verification-note">
+    Didn't receive the email?
+    <a
+      href="javascript:void(0)"
+      class="app-link"
+      (click)="resendVerificationEmail()"
+      [style.pointer-events]="canResend() ? 'auto' : 'none'"
+      [style.opacity]="canResend() ? '1' : '0.6'"
+    >
+      @if (canResend()) {
+        <strong>Resend Email</strong>
+      } @else {
+        <strong>Resend in {{ timerText() }}</strong>
+      }
+    </a>
+  </p>
+
+  <button
+    type="button"
+    class="app-btn-primary update-email-btn"
+    style="width: 250px;"
+  >
+    Update Email
+  </button>
+
+</div>

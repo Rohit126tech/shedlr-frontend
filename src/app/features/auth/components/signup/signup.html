@@ -1,3 +1,4 @@
+
 <div class="signup-wrapper">
   <div class="illustration-container">
     <img src="/assets/images/signup.gif" type="video/mp4" />
@@ -51,42 +52,114 @@
             <small class="app-error"> Email is required </small>
           }
 
-          @if (f['email'].errors?.['email']) {
+          @if (f['email'].errors?.['pattern']) {
             <small class="app-error"> Please enter a valid email address </small>
           }
         }
       </div>
 
       <!-- Password -->
+<div class="app-form-group">
+  <label class="app-label"> Password </label>
 
-      <div class="app-form-group">
-        <label class="app-label"> Password </label>
+  <div class="app-password-wrapper">
+    <input
+      [type]="hidePassword ? 'password' : 'text'"
+      class="app-input"
+      placeholder="Create a password"
+      formControlName="password"
+    />
 
-        <div class="app-password-wrapper">
-          <input
-            [type]="hidePassword ? 'password' : 'text'"
-            class="app-input"
-            placeholder="Create a password"
-            formControlName="password"
-          />
+    <button
+      type="button"
+      class="app-password-toggle"
+      (click)="togglePassword()"
+    >
+      <i
+        class="fa-solid"
+        [class.fa-eye]="hidePassword"
+        [class.fa-eye-slash]="!hidePassword"
+      >
+      </i>
+    </button>
+  </div>
 
-          <button type="button" class="app-password-toggle" (click)="togglePassword()">
-            <i class="fa-solid" [class.fa-eye]="hidePassword" [class.fa-eye-slash]="!hidePassword">
-            </i>
-          </button>
-        </div>
+  @if (f['password'].value) {
 
-        @if (f['password'].touched) {
-          @if (f['password'].errors?.['required']) {
-            <small class="app-error"> Password is required </small>
-          }
+  <div class="password-strength">
 
-          @if (f['password'].errors?.['minlength']) {
-            <small class="app-error"> Password must be at least 8 characters </small>
-          }
-        }
-      </div>
+    <div class="strength-header">
+      <span>Password Strength</span>
+      <span>{{ passwordStrength() }}%</span>
+    </div>
 
+    <div class="strength-bar">
+      <div
+        class="strength-progress"
+        [style.width.%]="passwordStrength()"
+      ></div>
+    </div>
+
+    <small class="strength-label">
+      {{ passwordStrengthLabel() }}
+    </small>
+
+  </div>
+
+}
+
+@if (f['password'].touched && f['password'].invalid) {
+
+  <div class="password-validation-errors">
+
+    @if (f['password'].errors?.['required']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">⚠</span>
+        <span>Password is required</span>
+      </small>
+    }
+
+    @if (f['password'].errors?.['minlength']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">•</span>
+        <span>Password must be at least 8 characters</span>
+      </small>
+    }
+
+    @if (f['password'].errors?.['uppercase']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">•</span>
+        <span>Password must contain at least 1 uppercase letter</span>
+      </small>
+    }
+
+    @if (f['password'].errors?.['lowercase']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">•</span>
+        <span>Password must contain at least 1 lowercase letter</span>
+      </small>
+    }
+
+    @if (f['password'].errors?.['number']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">•</span>
+        <span>Password must contain at least 1 number</span>
+      </small>
+    }
+
+    @if (f['password'].errors?.['specialCharacter']) {
+      <small class="app-error validation-item">
+        <span class="validation-icon">•</span>
+        <span>Password must contain at least 1 special character</span>
+      </small>
+    }
+
+  </div>
+
+}
+  
+
+</div>
       <!-- Confirm Password -->
 
       <div class="app-form-group">
@@ -146,7 +219,7 @@
       <div class="bottom-link">
         Already have an account?
 
-        <a routerLink="/" class="app-link"> Sign In </a>
+        <a routerLink="/login" class="app-link"> Sign In </a>
       </div>
     </form>
   </div>

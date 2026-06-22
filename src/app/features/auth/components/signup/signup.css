@@ -219,6 +219,59 @@
   align-items: center;
   justify-content: center;
 }
+.password-validation-errors {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.validation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+.validation-icon {
+  flex-shrink: 0;
+  font-weight: 600;
+  margin-top: 1px;
+}
+.password-strength {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.strength-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.strength-bar {
+  width: 98%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background:#008a73;
+  margin-left:5px;
+}
+
+.strength-progress {
+  height: 100%;
+  
+  border-radius: 999px;
+  transition: width 0.3s ease;
+  background: currentColor;
+}
+
+.strength-label {
+  display: block;
+  margin-top: 6px;
+}
 
 /* Animation */
 

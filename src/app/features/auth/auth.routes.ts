@@ -28,4 +28,9 @@ export const AUTH_ROUTES: Routes = [
     loadComponent: () =>
       import('./components/reset-password/reset-password').then((c) => c.ResetPasswordComponent),
   },
+  {
+    path: 'verification-pending',
+    loadComponent: () =>
+      import('./components/emailverification-underprocess/emailverification-underprocess').then((c) => c.EmailverificationUnderprocess),
+  },
 ];

@@ -7,6 +7,7 @@ import { ForgotPasswordRequest, LoginRequest } from '../models/authRequest.model
 })
 export class AuthService {
   constructor(private http:HttpClient){}
+  email='';
   apiUrl='http://localhost:8080';
   login(data:LoginRequest){
    return this.http.post( this.apiUrl  +'/api' +'/'+'v1'+'/'+ 'auth'+'/'+'login',data ) 
@@ -22,5 +23,8 @@ export class AuthService {
   }
   resetPassword(data:any){
     return this.http.post(this.apiUrl + '/api/v1/auth/reset-password',data)
+  }
+  resendVerification(data:any){
+    return this.http.post(this.apiUrl + '/api/v1/auth/resend-verification',data)
   }
 }

@@ -1,0 +1,59 @@
+.verification-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.verification-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.verification-page h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.verification-description {
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.verification-note {
+  margin-bottom: 2rem;
+}
+
+.update-email-btn {
+  min-width: 220px;
+}
+.illustration-container {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 100%;
+}
+
+.illustration-container img {
+
+  width: clamp(220px, 75%, 420px);
+
+  max-height: 40vh;
+
+  object-fit: contain;
+
+  animation: float 4s ease-in-out infinite;
+}
