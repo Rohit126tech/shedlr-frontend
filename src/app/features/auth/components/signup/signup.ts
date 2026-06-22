@@ -17,7 +17,7 @@ import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule, EmailverificationUnderprocess, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './signup.html',
   styleUrl: './signup.css',
 })
