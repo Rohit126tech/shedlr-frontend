@@ -1,11 +1,12 @@
 import {
+  AfterViewInit,
   Component,
   OnDestroy,
   OnInit,
   computed,
   signal,
 } from '@angular/core';
-
+import lottie from 'lottie-web';
 import { interval, Subscription, take } from 'rxjs';
 import { AuthService } from '../../services/auth-service';
 
@@ -16,7 +17,7 @@ import { AuthService } from '../../services/auth-service';
   styleUrl: './emailverification-underprocess.css',
 })
 export class EmailverificationUnderprocess
-  implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy,AfterViewInit {
     email:string='';
     constructor(private authService:AuthService){
       this.email=this.authService.email
@@ -39,11 +40,20 @@ export class EmailverificationUnderprocess
 
     // If email is already sent during signup,
     // only start the timer here.
-   
+   console.log('AuthService Email:', this.authService.email);
    this.resendVerificationEmail();
 
     // If you actually want to send an email automatically,
     // call resendVerificationEmail() instead.
+  }
+   ngAfterViewInit(): void {
+    lottie.loadAnimation({
+      container: document.getElementById('paperPlaneAnimation')!,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/animations/paper-plane.json',
+    });
   }
 
   resendVerificationEmail(): void {

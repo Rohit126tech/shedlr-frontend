@@ -1,0 +1,36 @@
+.verification-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding:20px;
+  align-items: center;
+
+  text-align: center;
+  background-color: #e9fdfe;
+  max-width: 100%;
+ 
+}
+#paperPlaneAnimation {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+.verification-page h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.verification-description {
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.verification-note {
+  margin-bottom: 2rem;
+}
+
+.update-email-btn {
+  min-width: 220px;
+}
