@@ -1,11 +1,11 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth-service';
 
 import lottie from 'lottie-web';
 @Component({
   selector: 'app-verify-email',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './verify-email.html',
   styleUrl: './verify-email.css',
 })

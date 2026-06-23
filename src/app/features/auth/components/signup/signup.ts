@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, signal } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -12,8 +12,9 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth-service';
 import { ToastService } from '../../../../core/services/toast-service';
-import { EmailverificationUnderprocess } from '../emailverification-underprocess/emailverification-underprocess';
+
 import { finalize } from 'rxjs';
+import lottie from 'lottie-web';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,7 @@ import { finalize } from 'rxjs';
   templateUrl: './signup.html',
   styleUrl: './signup.css',
 })
-export class Signup {
+export class Signup implements AfterViewInit{
   hidePassword = true;
   hideConfirmPassword = true;
   signupForm!: FormGroup;
@@ -77,7 +78,15 @@ export class Signup {
       this.passwordStrength.set(this.calculatePasswordStrength(password || ''));
     });
   }
-
+ngAfterViewInit(): void {
+    lottie.loadAnimation({
+      container: document.getElementById('signupAnimation')!,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/animations/signup.json',
+    });
+  }
   get f() {
     return this.signupForm.controls;
   }
